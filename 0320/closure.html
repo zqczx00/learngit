@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>闭包与事件委托中的阻止冒泡</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	// 事件委托原理
+	// function delegate(selector, type, fn) {
+	// 	document.addEventListener(type, fn, false);
+	// }
+
+	// delegate('#input', 'click', function(e) {
+	// 	console.log('...');
+	// })
+
+	var arr = [];
+	var slice = arr.slice;
+	// 定义继承方法
+	var extend = function(src, obj) {
+		var o = {};
+		for(var k in src) {
+			o[k] = src[k];
+		}
+		for(var k in obj) {
+			o[k] = obj[k];
+		}
+
+		return o;
+	}
+
+	function delegate(selector, type, fn) {
+		var callback = fn;
+
+		var handler = function(e) {
+			// 选择器找到的元素
+			var selectorEl = document.querySelector(selector);
+			// 当前点击元素
+			var el = e.target;
+			// 确定选择器找到的元素是否包含当前点击元素。如果包含就应该触发事件
+			if(selectorEL.contains(el)) {
+				var evt = extend(e, { currentTarget: selectorEl });
+				evt = [evt].concat(slice.call(arguments, 1));
+				callback.apply(selectorEl, evt);
+				var s = '';
+			}
+			var s = '';
+		}
+
+		document.addEventListener(type, handler, false);
+	}
+
+	// 展开调用
+	delegate('#input', 'click', function() {
+		console.log('input');
+	});
+	delegate('#div', 'click', function() {
+		console.log('div');
+	});
+</script>
+</html>
