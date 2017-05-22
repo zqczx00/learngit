@@ -1,4 +1,3 @@
-Git is a version control system.
-Git is a free software
-Git is a distributed version control system.
-Git is free software distributed(分布式的) under the GPL
+#Note
+
+####This is notes for zqczx00's afterwork time. 

@@ -1,0 +1,46 @@
+<!-- display: inline-block 处理去除间距 -->
+1、移除前后标签的空格(或者添加注释)
+	缺点：代码可读性较差
+2、使用 margin 负值
+	<style type="text/css">
+		.space a {
+			display: inline-block;
+			margin-right: 3px;
+		}
+	</style>
+	缺点：由于外部环境的不确定性，以及最后一个元素多出的父 margin 值等问题，这个方法不适合大规模使用
+3、去除结束标签
+	<a>111
+	<a>222
+	<a>333</a>
+	(IE6/7需要保留最后一个结束标签)
+4、font-size: 0
+	<style type="text/css">
+		.space {
+			font-size: 0;
+			-webkit-text-size-adjust: none; /*(兼容chrome浏览器的默认字体大小)*/
+		}
+		.space a {
+			font-size: 12px;
+		}
+	</style>
+	(目前 chrome浏览器已经取消了最小字体限制)
+5、使用 letter-spacing
+	<style type="text/css">
+		.space {
+			letter-spacing: -3px;
+		}
+		.space a {
+			letter-spacing: 0;
+		}
+	</style>
+	opera浏览器下面有最小间距1像素的问题，letter-spacing 再小就被还原了
+6、使用 word-spacing
+	<style type="text/css">
+		.space {
+			word-spacing: -6px;
+		}
+		.space a {
+			word-spacing: 0;
+		}
+	</style>
