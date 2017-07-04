@@ -38,9 +38,12 @@
 6、使用 word-spacing
 	<style type="text/css">
 		.space {
+			/* 用于chrome 浏览器 */
+			display: inline-table;
 			word-spacing: -6px;
 		}
 		.space a {
 			word-spacing: 0;
 		}
 	</style>
+	一个是字符间距(letter-spacing) 一个是单词间距(word-spacing)，word-spacing 大到一定程度，

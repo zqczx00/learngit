@@ -9,10 +9,6 @@
     <link rel="stylesheet" href="css/animate.min.css">
     <script src="js/swiper.min.js"></script>
     <script src="js/swiper.animate.min.js"></script>
-    <!--<link rel="stylesheet" href="/dist/css/swiper.min.css">
-<link rel="stylesheet" href="/dist/css/animate.min.css">
-<script src="/dist/js/swiper.min.js"></script>
-<script src="/dist/js/swiper.animate.min.js"></script>-->
     <style>
     * {
         margin: 0;
@@ -106,6 +102,11 @@
         }
     }
     
+    #array {
+        position: absolute;
+        z-index: 999;
+        -webkit-animation: start 1.5s infinite ease-in-out;
+    }
     .ani {
         position: absolute;
     }
@@ -114,11 +115,6 @@
         position: absolute;
     }
     
-    #array {
-        position: absolute;
-        z-index: 999;
-        -webkit-animation: start 1.5s infinite ease-in-out;
-    }
     </style>
 </head>
 
@@ -206,9 +202,6 @@
 
             }
         },
-
-
-
     })
     </script>
 </body>
